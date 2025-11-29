@@ -157,9 +157,9 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, customers, o
                     </select>
                   </td>
                   <td className="p-4 text-sm">
-                    <div className="text-slate-800 font-medium">${order.price}</div>
+                    <div className="text-slate-800 font-medium">Rs. {order.price}</div>
                     <div className={`text-xs ${order.advance >= order.price ? 'text-green-600' : 'text-orange-500'}`}>
-                      Paid: ${order.advance}
+                      Paid: Rs. {order.advance}
                     </div>
                   </td>
                   <td className="p-4 text-right">
@@ -298,13 +298,13 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, customers, o
                   </h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
-                      <label className="text-xs font-medium text-slate-500">Total Price</label>
+                      <label className="text-xs font-medium text-slate-500">Total Price (Rs)</label>
                       <div className="relative">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">Rs</span>
                         <input 
                           type="number"
                           required
-                          className="w-full pl-6 p-2 border border-slate-300 rounded-md"
+                          className="w-full pl-8 p-2 border border-slate-300 rounded-md"
                           value={price}
                           onChange={(e) => setPrice(parseFloat(e.target.value))}
                         />
@@ -313,10 +313,10 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, customers, o
                     <div>
                       <label className="text-xs font-medium text-slate-500">Advance Paid</label>
                        <div className="relative">
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">Rs</span>
                         <input 
                           type="number"
-                          className="w-full pl-6 p-2 border border-slate-300 rounded-md"
+                          className="w-full pl-8 p-2 border border-slate-300 rounded-md"
                           value={advance}
                           onChange={(e) => setAdvance(parseFloat(e.target.value))}
                         />
@@ -324,7 +324,7 @@ export const OrderManager: React.FC<OrderManagerProps> = ({ orders, customers, o
                     </div>
                   </div>
                   <div className="mt-3 text-right text-sm font-medium text-slate-600">
-                    Balance Due: <span className="text-red-600">${price - advance}</span>
+                    Balance Due: <span className="text-red-600">Rs. {price - advance}</span>
                   </div>
                 </div>
               </div>

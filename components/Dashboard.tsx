@@ -71,13 +71,13 @@ export const Dashboard: React.FC<DashboardProps> = ({ orders }) => {
           <div className="flex justify-between items-start">
             <div>
               <p className="text-sm text-slate-500 font-medium">Monthly Revenue</p>
-              <h3 className="text-3xl font-bold text-emerald-600 mt-2">${totalRevenue}</h3>
+              <h3 className="text-3xl font-bold text-emerald-600 mt-2">Rs. {totalRevenue.toLocaleString()}</h3>
             </div>
             <div className="p-2 bg-emerald-50 rounded-lg text-emerald-600">
               <DollarSign size={20} />
             </div>
           </div>
-          <p className="text-xs text-slate-400 mt-2">Pend. Collection: ${pendingPayment}</p>
+          <p className="text-xs text-slate-400 mt-2">Pend. Collection: Rs. {pendingPayment.toLocaleString()}</p>
         </div>
 
          <div className="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
@@ -122,7 +122,7 @@ export const Dashboard: React.FC<DashboardProps> = ({ orders }) => {
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100 h-80">
-           <h3 className="text-lg font-semibold mb-4 text-slate-700">Revenue Trend</h3>
+           <h3 className="text-lg font-semibold mb-4 text-slate-700">Revenue Trend (PKR)</h3>
            <ResponsiveContainer width="100%" height="100%">
             <BarChart data={revenueData}>
               <CartesianGrid strokeDasharray="3 3" vertical={false} />

@@ -10,13 +10,13 @@ export const generateCostEstimate = async (
 ): Promise<any> => {
   const model = "gemini-2.5-flash";
   const prompt = `
-    You are an expert master tailor and boutique business manager.
+    You are an expert master tailor and boutique business manager in Pakistan.
     Analyze the following order request:
     Garment Type: ${garmentType}
     Description: ${description}
     Urgent: ${isUrgent}
 
-    Provide a realistic cost estimate (in generic currency units, e.g., $ or ₹) and time estimate.
+    Provide a realistic cost estimate in Pakistani Rupees (PKR) and time estimate.
     Also suggest fabric requirements and potential styling tips.
   `;
 
@@ -29,7 +29,7 @@ export const generateCostEstimate = async (
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            estimatedCost: { type: Type.NUMBER, description: "Estimated cost of stitching" },
+            estimatedCost: { type: Type.NUMBER, description: "Estimated cost of stitching in PKR" },
             timeEstimateDays: { type: Type.NUMBER, description: "Days required to complete" },
             patternSuggestions: {
               type: Type.ARRAY,
