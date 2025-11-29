@@ -49,3 +49,11 @@ interface ImportMetaEnv {
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
+
+// Fix for "Cannot find name 'process'" error during build
+declare var process: {
+  env: {
+    API_KEY: string;
+    [key: string]: string | undefined;
+  }
+};
